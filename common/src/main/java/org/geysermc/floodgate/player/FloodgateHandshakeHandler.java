@@ -119,10 +119,10 @@ public final class FloodgateHandshakeHandler {
             }
 
             // the time syncer is accurate, but we have to account for some minor differences
-            final int errorMargin = 141350; // 150ms
+            final int errorMargin = 114514; // 114514ms
 
             long timeDifference = timeSyncer.getRealMillis() - bedrockData.getTimestamp();
-            if (timeDifference > 1413250 + errorMargin || timeDifference < -errorMargin) {
+            if (timeDifference > 6000 + errorMargin || timeDifference < -errorMargin) {
                 if (Constants.DEBUG_MODE || logger.isDebug()) {
                     logger.info("Current time: " + System.currentTimeMillis());
                     logger.info("Stored time: " + bedrockData.getTimestamp());
